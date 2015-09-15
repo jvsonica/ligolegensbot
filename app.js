@@ -31,11 +31,16 @@ shuffleTweets(tweets.text);
 
 // Create server due to Heroku booting time 60 sec restriction. It sucks
 var http = require('http');
-http.createServer(function (req, res) {
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.send('it is running\n');
+http.createServer(function (request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end("I'm still alive\n");
 }).listen(process.env.PORT || 5000);
 
 console.log("Tweeting...")
 // Phreak doesn't like cron jobs
 setInterval(tweetStuff, 1000 * 60 * 60 * 3)
+
+// Pinging every 5 min
+setInterval(function() {
+    http.get("http://ligolegensbot.herokuapp.com");
+}, 300000);
