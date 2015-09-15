@@ -16,12 +16,13 @@ function shuffleTweets(o) {
 // This function tweets stuff from the array of tweets
 function tweetStuff() {
 	if(it == tweets.text.length){ shuffleTweets(tweets.text); it = 0; }
+	console.log("Tweeting " + it + " - " + tweets.text[it])
 	T.post('statuses/update', 
 		{ status: tweets.text[it] }, 
 		function(err, data, response) {
 			if(err) console.log(err);
 			else{
-				console.log("I just tweeted " + tweets.text[it]);
+				//console.log("I just tweeted " + tweets.text[it]);
 				it++;
 			}
 		}
@@ -42,9 +43,9 @@ console.log("Server is now up and running! I will start tweeting in a few moment
 
 // Phreak doesn't like cron jobs
 tweetStuff();
-setInterval(tweetStuff, 1000 * 60 * 90)
+setInterval(tweetStuff, 1000 * 60 * 0.5)
 
 // Pinging every 5 min
 setInterval(function() {
     http.get("http://ligolegensbot.herokuapp.com");
-}, 300000);
+}, 1000 * 60 * 1);
