@@ -43,9 +43,9 @@ console.log("Server is now up and running! I will start tweeting in a few moment
 
 // Phreak doesn't like cron jobs
 tweetStuff();
-setInterval(tweetStuff, 1000 * 60 * 0.5)
+setInterval(tweetStuff, 1000 * 60 * 90)
 
 // Pinging every 5 min
 setInterval(function() {
     http.get("http://ligolegensbot.herokuapp.com");
-}, 1000 * 60 * 1);
+}, 1000 * 60 * 90);
