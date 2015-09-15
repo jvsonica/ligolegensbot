@@ -10,5 +10,8 @@ module.exports = {
 		"vou jogar de mota",
 		"focus support noob",
 		"até ficas paneleiro dos olhos com a minha vayne",
+		"íamos era csgo",
+		"dá ulti para iniciar",
+		"só faltam 20 min para dar surrender",
 	]
 }
