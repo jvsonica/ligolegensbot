@@ -23,5 +23,6 @@ module.exports = {
 		'como é que isto me acertou',
 		'não posso, vou jantar daqui a um bocado',
 		'TWICE DA BOUNTY',
+		'perder contra o mota'
 	]
 }
