@@ -48,4 +48,4 @@ setInterval(tweetStuff, 1000 * 60 * 90)
 // Pinging every 5 min
 setInterval(function() {
     http.get("http://ligolegensbot.herokuapp.com");
-}, 1000 * 60 * 90);
+}, 1000 * 60 * 5);
