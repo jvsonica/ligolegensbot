@@ -1,10 +1,6 @@
 // Twit library is used to post our tweets
 var Twit = require('twit');
 
-console.log(process.env.LLB_CONSUMER_KEY);
-console.log(process.env.LLB_CONSUMER_SECRET);
-console.log(process.env.LLB_TOKEN);
-console.log(process.env.LLB_TOKEN_SECRET);
 // Let's initialize it with our configuration
 var T = new Twit(require('./config.js'));
 
@@ -28,6 +24,9 @@ function tweetStuff() {
 		}
 	)
 }
+
+// Initial shuffle
+shuffleTweets(tweets.text);
 
 // Phreak doesn't like cron jobs
 tweetStuff();

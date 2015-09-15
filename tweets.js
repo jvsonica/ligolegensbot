@@ -8,6 +8,7 @@ module.exports = {
 		"não jogo solocu",
 		"tiessême",
 		"vou jogar de mota",
-		"focus support noob"
+		"focus support noob",
+		"até ficas paneleiro dos olhos com a minha vayne",
 	]
 }
