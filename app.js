@@ -29,5 +29,4 @@ function tweetStuff() {
 shuffleTweets(tweets.text);
 
 // Phreak doesn't like cron jobs
-tweetStuff();
 setInterval(tweetStuff, 1000 * 60 * 60 * 3);
