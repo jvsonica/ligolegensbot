@@ -38,4 +38,4 @@ http.createServer(function (req, res) {
 
 console.log("Tweeting...")
 // Phreak doesn't like cron jobs
-setInterval(tweetStuff, 1000 * 60 * 3)
+setInterval(tweetStuff, 1000 * 60 * 60 * 3)
