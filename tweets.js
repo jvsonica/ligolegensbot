@@ -25,5 +25,7 @@ module.exports = {
 		'TWICE DA BOUNTY',
 		'perder contra o mota',
 		'este thresh tá me a foder e eu a ver',
+		'lolypoppy fds que rico',
+		'report junglerino',
 	]
 }

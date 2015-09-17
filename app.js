@@ -23,8 +23,8 @@ function tweetStuff() {
 			if(err) console.log(err);
 			else{
 				//console.log("I just tweeted " + tweets.text[it]);
-				it++;
 			}
+			it++;
 		}
 	)
 }
@@ -43,7 +43,7 @@ console.log("Server is now up and running! I will start tweeting in a few moment
 
 // Phreak doesn't like cron jobs
 tweetStuff();
-setInterval(tweetStuff, 1000 * 60 * 90)
+setInterval(tweetStuff, 1000 * 3)
 
 // Pinging every 5 min
 setInterval(function() {
