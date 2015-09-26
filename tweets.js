@@ -27,5 +27,9 @@ module.exports = {
 		'este thresh tá me a foder e eu a ver',
 		'lolypoppy fds que rico',
 		'report junglerino',
+		'viktor é memo fixe a support',
+		'fds deixem-me dar lifesteal',
+		'*está 2-12-2* é que eu até tou a jogar bem',
+		'não consigo dar ultimate, tá bugado'
 	]
 }
