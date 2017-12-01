@@ -37,7 +37,7 @@ const T = new Twit(config);
 
 // Tweeting every 3 hours
 tweetStuff();
-setInterval(tweetStuff, 1000 * 5)
+setInterval(tweetStuff, 1000 * 60 * 60 * 3)
 
 
 // Create server due to Heroku booting time 60 sec restriction and 15 min sleep trigger. It sucks
