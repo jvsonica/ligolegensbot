@@ -1,18 +1,33 @@
 {
-  "name": "LigoLegensBOT",
-  "private": true,
-  "version": "0.0.0",
-  "description": "LigoLegens BOT",
-  "keywords": [],
+  "name": "ligolegensbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
-    "twit": "^1.1.20"
+    "twit": "^2.2.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.12.1"
   },
   "scripts": {
-    "start": "node app.js",
-    "debug": "node debug .app.js"
+    "start": "nodemon app.js --exec babel-node --presets es2015,stage-2",
+    "build": "babel . --out-dir dist --ignore node_modules,dist",
+    "serve": "node dist/app.js",
+    "test": "mocha --compilers js:babel-register"
   },
-  "engines": {
-    "node": "0.12.x",
-    "npm": "2.7.x"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvsonica/ligolegensbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jvsonica/ligolegensbot/issues"
+  },
+  "homepage": "https://github.com/jvsonica/ligolegensbot#readme"
 }

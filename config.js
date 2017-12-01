@@ -1,5 +1,5 @@
 // Twitter App Keys saved in environment variables
-module.exports = {
+export default {
 	consumer_key: process.env.LLB_CONSUMER_KEY,
 	consumer_secret: process.env.LLB_CONSUMER_SECRET,
 	access_token: process.env.LLB_TOKEN,

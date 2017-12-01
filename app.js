@@ -1,51 +1,54 @@
 // Twit library is used to post our tweets
-var Twit = require('twit');
+import Twit from 'twit';
+import config from './config.js';
+import { tweets } from './tweets.js';
 
-// Let's initialize it with our configuration
-var T = new Twit(require('./config.js'));
-
-// Load Tweets array
-var tweets = require('./tweets.js');
-var it=0;
-
-// Top answer from StackOverflow. I'm that lazy
-function shuffleTweets(o) {
-	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x); return o;
+// Shuffle array so that tweets aren't that predictable
+const shuffleArray = (a) => {
+	const arr = a.slice();
+	for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;	
 }
+let possibleTweets = shuffleArray(tweets);
 
 // This function tweets stuff from the array of tweets
-function tweetStuff() {
-	if(it == tweets.text.length){ shuffleTweets(tweets.text); it = 0; }
-	console.log("Tweeting " + it + " - " + tweets.text[it])
+let it = 0;
+const tweetStuff = () => {
+	if (it == possibleTweets.length) { 
+		possibleTweets = shuffleArray(possibleTweets); 
+		it = 0; 
+	}
+	console.log("Tweeting " + it + " - " + possibleTweets[it])
+	it = it + 1;
 	T.post('statuses/update', 
-		{ status: tweets.text[it] }, 
-		function(err, data, response) {
+		{ status: possibleTweets[it] }, 
+		(err) => {
 			if(err) console.log(err);
-			else{
-				//console.log("I just tweeted " + tweets.text[it]);
-			}
 			it++;
 		}
 	)
 }
 
-// Initial shuffle
-shuffleTweets(tweets.text);
+// Initializing our Twitter client with our configuration
+const T = new Twit(config);
+
+// Tweeting every 3 hours
+tweetStuff();
+setInterval(tweetStuff, 1000 * 5)
+
 
 // Create server due to Heroku booting time 60 sec restriction and 15 min sleep trigger. It sucks
 var http = require('http');
-http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("I'm still alive\n");
+http.createServer((request, response) => {
+	// Default response for any request
+	response.writeHead(200, {"Content-Type": "text/plain"});
+	response.end("I'm still alive\n");
 }).listen(process.env.PORT || 5000);
 
-console.log("Server is now up and running! I will start tweeting in a few moments.")
-
-// Phreak doesn't like cron jobs
-tweetStuff();
-setInterval(tweetStuff, 1000 * 60 * 60 * 3)
-
-// Pinging every 5 min
-setInterval(function() {
+// Pinging oneself every 5 min so that machine doesn't enter sleep mode 
+setInterval(() => {
     http.get("http://ligolegensbot.herokuapp.com");
 }, 1000 * 60 * 5);
