@@ -33,7 +33,7 @@ export const tweets = [
 	'esta riot só tem merda na cabeça, só pode',
 	'eheh tostadeira eheh jogar no gameboy eheh',
 	'joguem este sem mim, vou lavar os dentes',
-	'perem aí que vou cagar'
+	'perem aí que vou cagar',
 	'tá calculating differences, vou buscar a casio XDDX',
 	'convida o relis',
 	'só apanho meninos especiais na jungle',
